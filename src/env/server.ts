@@ -1,17 +1,17 @@
 import { createEnv } from "@t3-oss/env-nextjs";
-import { ZodError, z } from "zod";
+import { StandardSchemaV1 } from "better-auth";
+import { z } from "zod";
 
 export const env = createEnv({
   server: {
     NODE_ENV: z.enum(["development", "production"]),
+    BETTER_AUTH_SECRET: z.string(),
+    DATABASE_URL: z.string(),
   },
 
-  onValidationError: (error: ZodError) => {
-    console.error(
-      "❌ Invalid environment variables:",
-      error.flatten().fieldErrors
-    );
-    process.exit(1);
+  onValidationError: (issues: StandardSchemaV1.Issue[]) => {
+    console.error("❌ Invalid environment variables:", issues);
+    throw new Error("Invalid environment variables");
   },
 
   emptyStringAsUndefined: true,
