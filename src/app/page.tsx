@@ -1,3 +1,7 @@
 export default function Home() {
-  return <h1>Hello, World!</h1>;
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <h1 className="text-2xl font-medium"> welcome to zen app</h1>
+    </div>
+  );
 }
