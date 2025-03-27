@@ -32,7 +32,8 @@ a minimal, opinionated next.js starter with modern tooling to help you ship fast
 - [drizzle orm](https://orm.drizzle.team/docs/get-started/postgresql-new)
 - postgresql
 
-### 🔧 setup
+
+### setup
 
 install dependencies:
 
